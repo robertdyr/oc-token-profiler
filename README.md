@@ -31,8 +31,3 @@ npm run preview
 2. Click `Upload session export`.
 3. Pick a JSON file exported from `GET /session/:id/message`.
 
-## Notes
-
-- This is a call tree, not a graph or flamegraph.
-- Tool payloads are treated as opaque; the tree is built from the top-level message structure.
-- The parser runs in a worker so large session files do not block the UI as much.
