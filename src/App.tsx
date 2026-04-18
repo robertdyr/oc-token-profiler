@@ -263,7 +263,7 @@ export default function App() {
             <div className="sort-controls">
               <label className="upload-label">
                 <input type="file" accept="application/json,.json" onChange={handleUpload} />
-                <span>{isLoading ? "Loading..." : "Upload messages.json"}</span>
+                <span>{isLoading ? "Loading..." : "Upload session export"}</span>
               </label>
             </div>
           </div>
@@ -333,7 +333,7 @@ export default function App() {
       ) : (
         <section className="empty-state">
           <h2>No Session Loaded</h2>
-          <p>Upload an OpenCode `messages.json` export to inspect token usage as a profiler-style call tree.</p>
+          <p>Upload JSON exported from `GET /session/:id/message` to inspect token usage as a profiler-style call tree.</p>
         </section>
       )}
     </div>
