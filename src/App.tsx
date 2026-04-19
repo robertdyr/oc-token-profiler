@@ -334,6 +334,7 @@ export default function App() {
         <section className="empty-state">
           <h2>No Session Loaded</h2>
           <p>Upload JSON exported from `GET /session/:id/message` to inspect token usage as a profiler-style call tree.</p>
+          <p>Everything runs locally in your browser — no data is uploaded.</p>
         </section>
       )}
     </div>
