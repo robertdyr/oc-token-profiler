@@ -62,6 +62,27 @@ export type Message = {
   parts: Part[]
 }
 
+export type SessionExport = {
+  info: {
+    id: string
+    slug?: string
+    projectID?: string
+    directory?: string
+    title?: string
+    version?: string
+    summary?: {
+      additions?: number
+      deletions?: number
+      files?: number
+    }
+    time?: {
+      created?: number
+      updated?: number
+    }
+  }
+  messages: Message[]
+}
+
 export type TreeNode = {
   id: string
   name: string

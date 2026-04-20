@@ -6,7 +6,7 @@ Profiler-style call tree for inspecting token usage in OpenCode session exports.
 
 ## What It Does
 
-- Upload JSON from the OpenCode `GET /session/:id/message` endpoint
+- Upload JSON produced by `opencode export`
 - Reconstruct the session into a call tree
 - Sort by total, non-cached, input, output, reasoning, and cache tokens
 - Highlight hot paths and expensive nodes
@@ -28,6 +28,19 @@ npm run preview
 ## Use
 
 1. Open the app.
-2. Click `Upload session export`.
-3. Pick a JSON file exported from `GET /session/:id/message`.
+2. Run `opencode export > messages.json`.
+3. Click `Upload export JSON`.
+4. Pick the exported JSON file.
 
+## Format
+
+The app expects the JSON shape produced by `opencode export`, where the session is wrapped like this:
+
+```json
+{
+  "info": { "...": "session metadata" },
+  "messages": [
+    { "info": { "...": "message metadata" }, "parts": [] }
+  ]
+}
+```

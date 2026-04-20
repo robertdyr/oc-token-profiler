@@ -181,7 +181,7 @@ export default function App() {
         <div className="title-block">
           <p className="eyebrow">Token Profiler</p>
           <h1>Session Call Tree</h1>
-          <p className="subtitle">Upload an OpenCode session export and inspect token usage as a profiler-style call tree.</p>
+          <p className="subtitle">Inspect token usage from an `opencode export` session dump as a profiler-style call tree.</p>
         </div>
         <div className="summary-strip">
           <div className="summary-card">
@@ -263,7 +263,7 @@ export default function App() {
             <div className="sort-controls">
               <label className="upload-label">
                 <input type="file" accept="application/json,.json" onChange={handleUpload} />
-                <span>{isLoading ? "Loading..." : "Upload session export"}</span>
+                <span>{isLoading ? "Loading..." : "Upload export JSON"}</span>
               </label>
             </div>
           </div>
@@ -333,7 +333,8 @@ export default function App() {
       ) : (
         <section className="empty-state">
           <h2>No Session Loaded</h2>
-          <p>Upload JSON exported from `GET /session/:id/message` to inspect token usage as a profiler-style call tree.</p>
+          <p>Run <code>opencode export &gt; messages.json</code>, then upload that JSON file to inspect the session as a profiler-style call tree.</p>
+          <p>Everything runs locally in your browser — no data is uploaded.</p>
         </section>
       )}
     </div>

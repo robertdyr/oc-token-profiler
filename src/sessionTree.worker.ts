@@ -1,5 +1,5 @@
 import { buildSessionTree } from "./tree"
-import type { Message, TreeNode } from "./types"
+import type { Message, SessionExport, TreeNode } from "./types"
 
 type WorkerRequest = {
   type: "load-text"
@@ -17,7 +17,12 @@ type WorkerResponse =
     }
 
 function parseMessages(text: string): Message[] {
-  return JSON.parse(text) as Message[]
+  const parsed = JSON.parse(text) as Message[] | SessionExport
+
+  if (Array.isArray(parsed)) return parsed
+  if (parsed && Array.isArray(parsed.messages)) return parsed.messages
+
+  throw new Error("Unsupported export format. Expected `opencode export` JSON with a top-level `messages` array.")
 }
 
 self.onmessage = async (event: MessageEvent<WorkerRequest>) => {
