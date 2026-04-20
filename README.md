@@ -2,6 +2,8 @@
 
 Profiler-style call tree for inspecting token usage in OpenCode session exports.
 
+[Live Demo](https://oc-token-profiler.vercel.app)
+
 ![OpenCode Token Profiler screenshot](showcase.png)
 
 ## What It Does
